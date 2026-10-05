@@ -1,0 +1,234 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oye Suno 🥺💗</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ffd6e7,#fff1f7,#ffd9e9);
+}
+
+.bg-heart{
+    position:absolute;
+    font-size:25px;
+    animation:float 6s linear infinite;
+    opacity:.5;
+}
+
+.bg-heart:nth-child(1){left:10%;animation-delay:0s}
+.bg-heart:nth-child(2){left:30%;animation-delay:2s}
+.bg-heart:nth-child(3){left:55%;animation-delay:1s}
+.bg-heart:nth-child(4){left:80%;animation-delay:3s}
+
+@keyframes float{
+    from{transform:translateY(110vh) rotate(0)}
+    to{transform:translateY(-120vh) rotate(360deg)}
+}
+
+.card{
+    width:90%;
+    max-width:430px;
+    background:rgba(255,255,255,.82);
+    padding:35px 25px;
+    border-radius:30px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(220,60,120,.22);
+    position:relative;
+    z-index:2;
+    animation:pop .8s ease;
+}
+
+@keyframes pop{
+    from{transform:scale(.7);opacity:0}
+    to{transform:scale(1);opacity:1}
+}
+
+.face{
+    font-size:70px;
+    animation:shake 1.8s infinite;
+}
+
+@keyframes shake{
+    0%,100%{transform:rotate(0)}
+    25%{transform:rotate(-8deg)}
+    75%{transform:rotate(8deg)}
+}
+
+h1{
+    color:#e93676;
+    font-size:34px;
+    margin:12px 0;
+}
+
+p{
+    color:#555;
+    font-size:17px;
+    line-height:1.6;
+}
+
+.big{
+    font-size:21px;
+    font-weight:bold;
+    color:#e93676;
+    margin:15px 0;
+}
+
+button{
+    margin-top:22px;
+    border:0;
+    padding:14px 25px;
+    border-radius:50px;
+    background:#ff4f87;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 8px 20px #ff4f8745;
+}
+
+button:hover{
+    transform:scale(1.06);
+}
+
+#no{
+    position:fixed;
+    transition:.2s;
+}
+
+#message{
+    margin-top:20px;
+    color:#e93676;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.hidden{
+    display:none;
+}
+
+.small{
+    margin-top:20px;
+    color:#aaa;
+    font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-heart">💗</div>
+<div class="bg-heart">💕</div>
+<div class="bg-heart">❤️</div>
+<div class="bg-heart">💖</div>
+
+<div class="card">
+
+    <div class="face">🥺👉👈</div>
+
+    <h1>Oyee Suno... 😭</h1>
+
+    <p>
+        Ek important announcement hai...
+    </p>
+
+    <div class="big">
+        MUJHE MAAF KAR DO NA 😭💗
+    </div>
+
+    <p>
+        Haan haan, galti ho gayi meri... 🥲<br>
+        Ab itna bhi gussa mat karo yaar.
+        <br><br>
+        Tum naraz hoti ho toh mera
+        <b>brain bhi loading screen pe chala jata hai</b> 😭😂
+    </p>
+
+    <p style="margin-top:15px;">
+        So officially...
+        <br>
+        <b>Sorry × 1000000 🥹❤️</b>
+    </p>
+
+    <button onclick="yes()">Theek hai, maaf kiya 💗</button>
+
+    <button id="no"
+            onmouseover="moveButton()"
+            onclick="moveButton()">
+        Nahi 😤
+    </button>
+
+    <div id="message"></div>
+
+    <div class="small">
+        Warning: Is page ko dekhne ke baad gussa rehna allowed nahi hai 😂❤️
+    </div>
+
+</div>
+
+<script>
+
+function moveButton(){
+
+    const button=document.getElementById("no");
+
+    const x=Math.random()*(window.innerWidth-120);
+    const y=Math.random()*(window.innerHeight-60);
+
+    button.style.left=x+"px";
+    button.style.top=y+"px";
+}
+
+function yes(){
+
+    document.getElementById("message").innerHTML =
+    "Yesss! 🥹❤️ Ab smile karo... warna main phir sorry bolunga 😂💗";
+
+    for(let i=0;i<35;i++){
+
+        const heart=document.createElement("div");
+
+        heart.innerHTML=["❤️","💗","💕","💖","✨","🥹"]
+        [Math.floor(Math.random()*6)];
+
+        heart.style.position="fixed";
+        heart.style.left="50%";
+        heart.style.top="50%";
+        heart.style.fontSize=(15+Math.random()*25)+"px";
+        heart.style.zIndex="10";
+        heart.style.transition="2s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+
+            heart.style.left=Math.random()*100+"vw";
+            heart.style.top=Math.random()*100+"vh";
+            heart.style.transform="scale(1.8) rotate(360deg)";
+            heart.style.opacity="0";
+
+        },50);
+
+        setTimeout(()=>heart.remove(),2000);
+    }
+}
+
+</script>
+
+</body>
+</html>
+```
